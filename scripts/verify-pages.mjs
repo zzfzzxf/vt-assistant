@@ -41,11 +41,14 @@ try {
   const errors = [], failed = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('response', r => { if (r.url().startsWith(url) && r.status() >= 400) failed.push({ url: r.url(), status: r.status() }); });
-  const response = await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+  // Antivirus/browser integrations may keep long-poll requests open indefinitely.
+  // Verify the actual application readiness instead of waiting for global network idle.
+  const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   assert.equal(response.status(), 200);
   assert.ok(await page.locator('h1').isVisible());
   results.push('Public/project URL returns 200 and renders the homepage');
   await page.locator('.chip-scene[data-ready="true"], .chip-scene[data-fallback="true"]').waitFor({ timeout: 60000 });
+  await page.evaluate(() => document.fonts.ready.then(() => true));
   assert.deepEqual(failed, []);
   assert.deepEqual(errors, []);
   results.push('CSS, fonts, images and dynamic 3D module load under the project path');
