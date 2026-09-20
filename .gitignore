@@ -1,0 +1,14 @@
+node_modules/
+dist/
+offline/
+VT助手官网.zip
+交付/
+reports/
+public/downloads/*
+!public/downloads/.gitkeep
+!public/downloads/VT-Assistant-Mode2-Test.7z
+任务记录.md
+.env
+.env.*
+!.env.example
+.DS_Store
