@@ -102,7 +102,7 @@ try {
     assert.equal(downloaded.suggestedFilename(), 'VT助手.7z');
     const data = await fs.readFile(file);
     assert.equal(data.length, product.download.bytes); assert.equal(hash(data), product.download.sha256);
-    const original = await fs.readFile('public/downloads/VT-Assistant-Mode2-Test.7z');
+    const original = await fs.readFile(path.resolve('public', product.download.url));
     assert.equal(hash(data), hash(original));
     return { bytes: data.length, sha256: hash(data), filename: downloaded.suggestedFilename() };
   });

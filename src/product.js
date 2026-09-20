@@ -1,9 +1,9 @@
 export const product = {
   name: 'VT助手',
   download: {
-    url: './downloads/VT-Assistant-Mode2-Test.7z',
+    url: './downloads/VT-Assistant-c6c616a54a03.7z',
     filename: 'VT助手.7z',
-    bytes: 25754285,
-    sha256: 'b448dde4802dd52c06d7a1caa42cc61db4dceaefc872234a232777822c9d3d9f',
+    bytes: 20910256,
+    sha256: 'c6c616a54a03262eb4d126bc87b6fa946a105a5b671390c3550d3488ee292277',
   },
 };

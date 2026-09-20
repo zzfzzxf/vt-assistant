@@ -1,6 +1,6 @@
 # VT助手官网
 
-[在线官网](https://zzfzzxf.github.io/vt-assistant/) · [GitHub 仓库](https://github.com/zzfzzxf/vt-assistant)
+[在线官网](https://vt-assistant.vercel.app/) · [GitHub Pages](https://zzfzzxf.github.io/vt-assistant/) · [GitHub 仓库](https://github.com/zzfzzxf/vt-assistant)
 
 产品展示官网，采用深石墨黑与冰川绿，包含三维芯片概念视觉、产品介绍、场景切换、使用指引、软件下载和常见问题。支持手机、浅深主题、键盘操作和减少动画偏好。
 
@@ -24,7 +24,7 @@ Node.js 版本需符合 Vite 7 要求（20.19+ 或 22.12+）；也可使用 npm 
 - `src/ChipScene.jsx`：Three.js 芯片视觉；离屏时暂停绘制，支持静态降级。
 - `src/styles.css`：主题、布局、动画、移动适配。
 - `src/product.js`：下载文件路径、保存名称、大小及 SHA-256。
-- `public/downloads/VT-Assistant-Mode2-Test.7z`：用户提供的软件包副本。
+- `public/downloads/VT-Assistant-c6c616a54a03.7z`：用户提供的软件包副本。
 - `public/images/`：本地静态视觉资源，无第三方在线资源依赖。
 - `dist/`：已构建的静态网站，部署时使用整个目录。
 - `offline/`：无需启动服务器，双击 `index.html` 即可打开的离线预览版。
@@ -36,14 +36,14 @@ Node.js 版本需符合 Vite 7 要求（20.19+ 或 22.12+）；也可使用 npm 
 
 网页入口只显示“下载软件”，浏览器保存名称为 `VT助手.7z`。原软件包未修改或运行。
 
-原文件名称：`VT助手_模式2全新架构测试.7z`
+原文件名称：`VT助手7.7z`
 
-大小：25,754,285 字节。
+大小：20,910,256 字节。
 
 SHA-256：
 
 ```text
-b448dde4802dd52c06d7a1caa42cc61db4dceaefc872234a232777822c9d3d9f
+c6c616a54a03262eb4d126bc87b6fa946a105a5b671390c3550d3488ee292277
 ```
 
 HTTP 模式下，页面检查响应、文件大小，并在安全上下文中校验 SHA-256 后交给浏览器保存；失败会显示重试提示。直接打开 HTML 时使用浏览器原生本地文件下载。
@@ -58,7 +58,7 @@ HTTP 模式下，页面检查响应、文件大小，并在安全上下文中校
 
 ### GitHub Pages
 
-项目适合 GitHub Pages：全部功能在浏览器运行，页面使用相对资源路径，包含的下载文件约 24.6 MiB。仓库内的 `.github/workflows/pages.yml` 在 `main` 分支更新时自动构建并发布 `dist/`。
+项目适合 GitHub Pages：全部功能在浏览器运行，页面使用相对资源路径，包含的下载文件约 19.9 MiB。仓库内的 `.github/workflows/pages.yml` 在 `main` 分支更新时自动构建并发布 `dist/`。
 
 仓库的 Settings → Pages → Build and deployment 应选择 GitHub Actions。Actions 使用 Node.js 24 和 pnpm 11.19.0，执行 `pnpm install --frozen-lockfile` 与 `pnpm run build:pages`。构建检查会验证相对路径、文件体积、下载哈希及部署文件清单。
 
@@ -81,4 +81,4 @@ HTTP 模式下，页面检查响应、文件大小，并在安全上下文中校
 - 图标：Phosphor Icons，MIT。
 - 拉丁字体：Geist，SIL Open Font License；中文使用系统字体。
 
-构建输出和验证报告已列入 `.gitignore`。`public/downloads/VT-Assistant-Mode2-Test.7z` 是唯一明确加入版本控制的软件包，用于网页中的公开下载。
+构建输出和验证报告已列入 `.gitignore`。`public/downloads/VT-Assistant-c6c616a54a03.7z` 是唯一明确加入版本控制的软件包，用于网页中的公开下载。
